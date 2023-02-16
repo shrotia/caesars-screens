@@ -1,0 +1,18 @@
+version: 1
+indices:
+  channels:
+    include:
+      - '/screens/caesars/**'
+    target: '/screens/caesars/channels'
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      externalId:
+        select: main
+        value: path
+      lastModified:
+        select: none
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')

@@ -1,0 +1,47 @@
+{
+  "version": "3.0",
+  "contentDelivery": {
+    "providers": [
+      {
+        "name": "franklin",
+        "endpoint": "/"
+      }
+    ],
+    "defaultProvider": "franklin"
+  },
+  "timestamp": 1671099599144,
+  "entries": [
+    {
+      "path": "/screens/caesars/restaurants/menus/cafe",
+      "timestamp": 1658844892337
+    },
+    {
+      "path": "/scripts/lib-franklin.js",
+      "timestamp": 1593512456954
+    },
+    {
+      "path": "/scripts/scripts.js",
+      "timestamp": 1670317246247
+    },
+    {
+      "path": "/styles/styles.css",
+      "timestamp": 1671099599105
+    },
+    {
+      "path": "/styles/favicon.svg",
+      "timestamp": 1671099599105
+    },
+    {
+      "path": "/blocks/header/header.css",
+      "timestamp": 1671099599112
+    },
+    {
+      "path": "/blocks/footer/footer.css",
+      "timestamp": 1671099599112
+    },
+    {
+      "path": "/styles/lazy-styles.css",
+      "timestamp": 1671099599113
+    }
+  ]
+}
