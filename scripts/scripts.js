@@ -124,18 +124,28 @@ async function loadPage() {
 
 loadPage();
 
-
-const nestedTable = async function createAlcoholBevarageNestedTable(document) {
+/**
+ * ToDo
+ * @param rootDocument
+ * @returns {Promise<void>}
+ */
+const nestedTable = async function createAlcoholBevarageNestedTable(rootDocument) {
   const rootSelector = '.section.beverages-content';
-  const tableHeading = document.querySelector(`${rootSelector} > div:nth-last-child(-n + 4)`);
-  const wineTable = document.querySelector(`${rootSelector} > div:nth-last-child(-n + 3)`);
-  const champagneTable = document.querySelector(`${rootSelector} > div:nth-last-child(-n + 2)`);
-  const beerTable = document.querySelector(`${rootSelector} > div:nth-last-child(-n + 1)`);
+  const beverageContentDocumentRoot = rootDocument.querySelector(rootSelector);
+
+  if (!beverageContentDocumentRoot) {
+    return;
+  }
+
+  const tableHeading = beverageContentDocumentRoot.querySelector(`${rootSelector} > div:nth-last-child(-n + 4)`);
+  const wineTable = beverageContentDocumentRoot.querySelector(`${rootSelector} > div:nth-last-child(-n + 3)`);
+  const champagneTable = beverageContentDocumentRoot.querySelector(`${rootSelector} > div:nth-last-child(-n + 2)`);
+  const beerTable = beverageContentDocumentRoot.querySelector(`${rootSelector} > div:nth-last-child(-n + 1)`);
 
   // create a new nested table div element
-  const alcoholBevarageNestedTableDiv = document.createElement("div");
-  alcoholBevarageNestedTableDiv.className = 'alcohol-beverages-table';
-  document.querySelector(`${rootSelector}`).append(alcoholBevarageNestedTableDiv);
+  const alcoholBeverageNestedTableDiv = document.createElement("div");
+  alcoholBeverageNestedTableDiv.className = 'alcohol-beverages-table';
+  rootDocument.querySelector(`${rootSelector}`).append(alcoholBeverageNestedTableDiv);
 
   // create a new nested table div element
   const wineChampagneNestedTableDiv = document.createElement("div");
@@ -143,8 +153,8 @@ const nestedTable = async function createAlcoholBevarageNestedTable(document) {
   wineChampagneNestedTableDiv.appendChild(wineTable);
   wineChampagneNestedTableDiv.appendChild(champagneTable);
 
-  alcoholBevarageNestedTableDiv.appendChild(tableHeading);
-  alcoholBevarageNestedTableDiv.appendChild(wineChampagneNestedTableDiv);
-  alcoholBevarageNestedTableDiv.appendChild(beerTable);
+  alcoholBeverageNestedTableDiv.appendChild(tableHeading);
+  alcoholBeverageNestedTableDiv.appendChild(wineChampagneNestedTableDiv);
+  alcoholBeverageNestedTableDiv.appendChild(beerTable);
 
 }

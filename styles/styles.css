@@ -243,7 +243,7 @@ main {
 
 .section.beverages-heading {
   writing-mode: vertical-rl;
-  text-orientation: upright;
+  text-orientation: revert;
   text-align: end;
   font-size: 70px;
   font-weight: lighter;
@@ -251,7 +251,7 @@ main {
 }
 
 .section.beverages-heading p {
-  margin: 0px;
+  margin: 1%;
 }
 
 .section.beverages-content {
