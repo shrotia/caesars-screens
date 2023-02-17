@@ -14,13 +14,13 @@
   /* colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
-  --background-color: #fff;
+  --background-color: #420204;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
-  --text-color: #000;
+  --text-color: #fff;
 
   /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
+  --body-font-family: 'Montserrat',sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -38,11 +38,12 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 48px;
 
 }
 
 body {
+  font-weight: lighter;
   font-size: var(--body-font-size-m);
   margin: 0;
   font-family: var(--body-font-family);
@@ -234,4 +235,106 @@ main .section[data-section-status='initialized'] {
 
 main .section.highlight {
   background-color: var(--highlight-background-color);
+}
+
+main {
+  display: flex;
+}
+
+.section.beverages-heading {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: end;
+  font-size: 70px;
+  font-weight: lighter;
+  padding: 0px;
+}
+
+.section.beverages-heading p {
+  margin: 0px;
+}
+
+.section.beverages-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.section.beverages-content .coffee-table  > div > div:first-of-type {
+  width: 60%;
+  flex-grow: 2;
+}
+
+.section.beverages-content div {
+  margin: 0px;
+}
+
+.section.beverages-content .coffee-table {
+  margin: 2%;
+  padding: 2%;
+}
+
+.section.beverages-content .coffee-table > div h3 {
+  margin: 0px;
+}
+
+.section.beverages-content .alcoholic-table {
+  border: solid;
+  margin-top: 20px;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.section.beverages-content h3 {
+  margin: 0px;
+}
+
+.section.beverages-content > .alcohol-beverages-table {
+  border: solid;
+  margin: 2%;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: unset;
+}
+
+.section.beverages-content > .alcohol-beverages-table > div:first-of-type {
+  width: 100%;
+}
+
+.section.beverages-content > .alcohol-beverages-table > div:nth-of-type(2) {
+  width: 50%;
+}
+
+.section.beverages-content > .alcohol-beverages-table > div:nth-of-type(3) {
+  width: 50%;
+}
+
+.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(2) {
+  margin-left: 1em;
+}
+
+.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(3)  {
+  margin-left: 1em;
+}
+
+.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .champagne-table > div:nth-of-type(2)  {
+  margin-left: 1em;
+}
+
+.section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(2)  {
+  margin-left: 1em;
+}
+
+.section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(3)  {
+  margin-left: 1em;
+}
+
+.section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(4)  {
+  margin-left: 1em;
+}
+
+.section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(5)  {
+  margin-left: 1em;
 }

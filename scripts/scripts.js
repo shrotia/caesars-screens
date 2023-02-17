@@ -88,6 +88,7 @@ export function addFavIcon(href) {
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
+  await nestedTable(doc);
   const main = doc.querySelector('main');
   await loadBlocks(main);
 
@@ -95,8 +96,8 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
-  loadFooter(doc.querySelector('footer'));
+ // loadHeader(doc.querySelector('header'));
+ // loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
@@ -122,3 +123,28 @@ async function loadPage() {
 }
 
 loadPage();
+
+
+const nestedTable = async function createAlcoholBevarageNestedTable(document) {
+  const rootSelector = '.section.beverages-content';
+  const tableHeading = document.querySelector(`${rootSelector} > div:nth-last-child(-n + 4)`);
+  const wineTable = document.querySelector(`${rootSelector} > div:nth-last-child(-n + 3)`);
+  const champagneTable = document.querySelector(`${rootSelector} > div:nth-last-child(-n + 2)`);
+  const beerTable = document.querySelector(`${rootSelector} > div:nth-last-child(-n + 1)`);
+
+  // create a new nested table div element
+  const alcoholBevarageNestedTableDiv = document.createElement("div");
+  alcoholBevarageNestedTableDiv.className = 'alcohol-beverages-table';
+  document.querySelector(`${rootSelector}`).append(alcoholBevarageNestedTableDiv);
+
+  // create a new nested table div element
+  const wineChampagneNestedTableDiv = document.createElement("div");
+  wineChampagneNestedTableDiv.className = 'wine-champagne-left-table';
+  wineChampagneNestedTableDiv.appendChild(wineTable);
+  wineChampagneNestedTableDiv.appendChild(champagneTable);
+
+  alcoholBevarageNestedTableDiv.appendChild(tableHeading);
+  alcoholBevarageNestedTableDiv.appendChild(wineChampagneNestedTableDiv);
+  alcoholBevarageNestedTableDiv.appendChild(beerTable);
+
+}
