@@ -1,8 +1,6 @@
 import {
   sampleRUM,
   buildBlock,
-  loadHeader,
-  loadFooter,
   decorateButtons,
   decorateIcons,
   decorateSections,
@@ -11,7 +9,11 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  populateValuesContent,
 } from './lib-franklin.js';
+
+// Map to hold Elements having templates placeholders
+const placeholders = new Map();
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
@@ -100,9 +102,12 @@ async function loadLazy(doc) {
  // loadHeader(doc.querySelector('header'));
  // loadFooter(doc.querySelector('footer'));
   await layout(doc);
-
+  await hidePlaceholders(doc);
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
+
+  await populateValuesContent(placeholders);
+
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
@@ -126,6 +131,11 @@ async function loadPage() {
 
 loadPage();
 
+/**
+ *
+ * @param rootDocument
+ * @returns {Promise<void>}
+ */
 const layout = async function createMenusFlexLayout(rootDocument) {
   const beveragesFirstSectionSelector = '.section.beverages-heading';
   const beveragesFirstSectionElement = rootDocument.querySelector(beveragesFirstSectionSelector);
@@ -197,5 +207,28 @@ const nestedTable = async function createAlcoholBevarageNestedTable(rootDocument
   alcoholBeverageNestedTableDiv.appendChild(tableHeading);
   alcoholBeverageNestedTableDiv.appendChild(wineChampagneNestedTableDiv);
   alcoholBeverageNestedTableDiv.appendChild(beerTable);
+
+}
+
+/**
+ *
+ * @param rootDocument
+ * @returns {Promise<void>}
+ */
+const hidePlaceholders = async function findAndHideTemplatePlaceholders(rootDocument) {
+
+  const startsWithTemplateLiteral = '{{';
+  const endsWithTemplateLiteral = '}}';
+
+  // Find all the HTML elements whose text content matches the regular expression
+  const matchedElements = [];
+  const elements = document.getElementsByTagName('div');
+  for (let i = 0; i < elements.length; i++) {
+    const element = elements[i];
+    if (element.textContent.startsWith(startsWithTemplateLiteral) && element.textContent.endsWith(endsWithTemplateLiteral)) {
+      placeholders.set(element.textContent, element);
+      element.style.display = 'none';
+    }
+  }
 
 }

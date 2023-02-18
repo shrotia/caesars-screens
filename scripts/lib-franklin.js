@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+const prices = 'https://main--caesars-screens--shrotia.hlx.live/screens/caesars/restaurants/menus/values.json';
+
 /**
  * log RUM if part of the sample.
  * @param {string} checkpoint identifies the checkpoint in funnel
@@ -582,3 +584,81 @@ function init() {
 }
 
 init();
+
+
+// parse value JSON and mutate Menu HTML content
+/**
+ *
+ * @param elements
+ * @returns {Promise<void>}
+ */
+export async function populateValuesContent(elementsMap) {
+
+  fetch(prices)
+      .then(response => response.json())
+      .then(menu => {
+        // Accessing specific items in the menu
+        const beveragesCoffeeEntries = menu['beverages-Coffee']['data'];
+        const foodSidesEntries = menu['food-Sides']['data'];
+
+        processMenuSection (elementsMap, beveragesCoffeeEntries);
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the HTTP request
+        console.log(error);
+      });
+
+
+}
+
+/**
+ *
+ * @param elements
+ * @param beveragesCoffeeEntries
+ */
+function processMenuSection(elementsMap, dataEntries) {
+
+  dataEntries.forEach(function (value) {
+    const potentialKey1 =  `{{${value.Item}/variant_1\}\}`;
+    const potentialKey2 =  `{{${value.Item}/variant_2\}\}`;
+    const potentialKey3 =  `{{${value.Item}/price}}`;
+    const targetEntries = [];
+    if (elementsMap.has(potentialKey1)) {
+      targetEntries.push(elementsMap.get(potentialKey1));
+    }
+
+    if (elementsMap.has(potentialKey2)) {
+      targetEntries.push(elementsMap.get(potentialKey2));
+    }
+
+    if (elementsMap.has(potentialKey3)) {
+      targetEntries.push(elementsMap.get(potentialKey3));
+    }
+
+    // Out Of Stock handling
+    if (Object.prototype.hasOwnProperty.call(value,'Out Of Stock')) {
+      const isOutOfStock = value['Out Of Stock'].toUpperCase() === 'TRUE' || value['Out Of Stock'].toUpperCase() === 'YES';
+      if (targetEntries.length > 0 && isOutOfStock) {
+        targetEntries[0].parentElement.style.display = 'none';
+      }
+    }
+
+    targetEntries.forEach(function(targetElement){
+      let targetValue = '';
+      if (targetElement.textContent === potentialKey1) {
+        targetValue = `${value['Variant 1 Price']}`;
+      }
+
+      if (targetElement.textContent === potentialKey2) {
+        targetValue = `${value['Variant 2 Price']}`;
+      }
+
+      if (targetElement.textContent === potentialKey3) {
+        targetValue = `${value['Price']}`;
+      }
+      targetElement.textContent = targetValue;
+      targetElement.style.display = ''; // un hide after setting the value
+    });
+  });
+
+}
