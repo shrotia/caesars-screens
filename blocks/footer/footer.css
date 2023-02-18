@@ -1,4 +1,14 @@
 footer {
-  padding-bottom: 2%;
+  padding: 2rem;
+  background-color: var(--overlay-background-color);
+  font-size: var(--body-font-size-s);
 }
-/* ToDo - remove footer page completely */
+
+footer .footer {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer .footer p {
+  margin: 0;
+}

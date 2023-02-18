@@ -246,6 +246,10 @@ main {
   }
 }
 
+header {
+  display: none;
+}
+
 /* Beverages Menu */
 
 .beverages-menu {
