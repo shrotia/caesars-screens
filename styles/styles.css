@@ -14,7 +14,7 @@
   /* colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
-  --background-color: #420204;
+  --background-color: #000;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
   --text-color: #fff;
@@ -336,5 +336,108 @@ main {
 }
 
 .section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(5)  {
+  margin-left: 1em;
+}
+
+
+/* Food Menu */
+
+.section.sweets, .section.brioche-savory, .section.sides  {
+  padding: 0%;
+  justify-content: center;
+  align-items: center;
+}
+
+.section.sweets .sweets-table {
+  border: solid;
+  padding: 2%;
+  margin: 2%;
+  width: 100%;
+}
+
+.section.brioche-savory .brioche-savory-table {
+  border: solid;
+  padding: 2%;
+  margin: 2%;
+  width: 100%;
+}
+
+.section.sides .sides-table {
+  border: solid;
+  padding: 2%;
+  margin: 2%;
+  width: 100%;
+}
+
+.section.sides {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 10%;
+}
+
+.section.sides > div:first-of-type {
+  order: 1;
+}
+
+.section.sides > div:nth-of-type(2)  {
+  margin: 0%;
+  width: 80%;
+}
+
+.section.sides p {
+  writing-mode: vertical-rl;
+  text-orientation: revert;
+  text-align: end;
+  font-size: 70px;
+  font-weight: lighter;
+  padding: 0%;
+  margin: 0%;
+}
+
+.section.beverages-heading p {
+  margin: 1%;
+}
+
+.section.sweets .sweets-table > div:nth-of-type(2)  {
+  margin-left: 1em;
+  word-spacing: 0.3em;
+}
+
+.section.sweets .sweets-table > div:nth-of-type(3)  {
+  margin-left: 1em;
+}
+
+.section.brioche-savory .brioche-savory-table > div:nth-of-type(2)  {
+  margin-left: 1em;
+  word-spacing: 0.3em;
+}
+
+.section.brioche-savory .brioche-savory-table > div:nth-of-type(4)  {
+  margin-left: 1em;
+}
+
+.section.brioche-savory .brioche-savory-table > div:nth-of-type(5)  {
+  margin-left: 1em;
+}
+
+.section.brioche-savory .brioche-savory-table > div:nth-of-type(6)  {
+  margin-left: 1em;
+}
+
+.section.brioche-savory .brioche-savory-table > div:nth-of-type(7)  {
+  margin-left: 2em;
+  word-spacing: 0.3em;
+}
+
+.section.sides .sides-table > div:nth-of-type(2)  {
+  margin-left: 1em;
+}
+
+.section.sides .sides-table > div:nth-of-type(3)  {
+  margin-left: 1em;
+}
+
+.section.sides .sides-table > div:nth-of-type(4)  {
   margin-left: 1em;
 }

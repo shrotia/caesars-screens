@@ -582,3 +582,18 @@ function init() {
 }
 
 init();
+
+export function decorateFlexLayoutForFoodMenu(element) {
+
+  const sweetSectionSelector = '.section.sweets';
+  const briocheSavorySectionSelector = '.section.brioche-savory';
+  const sidesSectionSelector = '.section.sides';
+  const foodMenuSection = element.querySelector(sweetSectionSelector) || element.querySelector(briocheSavorySectionSelector) || element.querySelector(sidesSectionSelector);
+
+  if (!foodMenuSection) {
+    return;
+  }
+
+  // update flex layout for the Food Menu
+  foodMenuSection.parentElement.style.flexDirection = 'column';
+};
