@@ -250,10 +250,6 @@ main {
   padding: 0px;
 }
 
-.section.beverages-heading p {
-  margin: 1%;
-}
-
 .section.beverages-content {
   display: flex;
   flex-direction: column;
