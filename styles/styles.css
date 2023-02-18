@@ -14,7 +14,6 @@
   /* colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
-  --background-color: #601014;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
   --text-color: #fff;
@@ -241,6 +240,31 @@ main {
   display: flex;
 }
 
+@media (orientation: portrait) {
+  main {
+    flex-direction: column;
+  }
+}
+
+/* Beverages Menu */
+
+.beverages-menu {
+  background-color: #601014;
+  display: flex;
+}
+
+@media (orientation: landscape) {
+  .beverages-menu {
+    width: 50%;
+  }
+}
+
+@media (orientation: portrait) {
+  .beverages-menu {
+    width: 100%;
+  }
+}
+
 .section.beverages-heading {
   writing-mode: vertical-rl;
   text-orientation: revert;
@@ -338,6 +362,25 @@ main {
 
 /* Food Menu */
 
+.food-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  width: 50%
+}
+
+@media (orientation: landscape) {
+  .food-menu {
+    width: 50%;
+  }
+}
+
+@media (orientation: portrait) {
+  .food-menu {
+    width: 100%;
+  }
+}
+
 .section.sweets, .section.brioche-savory, .section.sides  {
   padding: 0%;
   justify-content: center;
@@ -348,14 +391,12 @@ main {
   border: solid;
   padding: 2%;
   margin: 2%;
-  width: 100%;
 }
 
 .section.brioche-savory .brioche-savory-table {
   border: solid;
   padding: 2%;
   margin: 2%;
-  width: 100%;
 }
 
 .section.sides .sides-table {

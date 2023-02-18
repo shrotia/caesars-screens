@@ -11,7 +11,6 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-  decorateFlexLayoutForFoodMenu,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -53,7 +52,6 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  decorateFlexLayoutForFoodMenu(main); // update Flex layout post Sections are decorated
 }
 
 /**
@@ -91,6 +89,7 @@ export function addFavIcon(href) {
  */
 async function loadLazy(doc) {
   await nestedTable(doc);
+
   const main = doc.querySelector('main');
   await loadBlocks(main);
 
@@ -100,6 +99,7 @@ async function loadLazy(doc) {
 
  // loadHeader(doc.querySelector('header'));
  // loadFooter(doc.querySelector('footer'));
+  await layout(doc);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
@@ -125,6 +125,45 @@ async function loadPage() {
 }
 
 loadPage();
+
+const layout = async function createMenusFlexLayout(rootDocument) {
+  const beveragesFirstSectionSelector = '.section.beverages-heading';
+  const beveragesFirstSectionElement = rootDocument.querySelector(beveragesFirstSectionSelector);
+
+  const beveragesSecondSectionSelector = '.section.beverages-content';
+  const beveragesSecondSectionElement = rootDocument.querySelector(beveragesSecondSectionSelector);
+
+  if (beveragesFirstSectionElement && beveragesSecondSectionElement) {
+    // create a new root div element for Beverages Menu
+    const beveragesMenu = document.createElement("div");
+    beveragesMenu.className = 'beverages-menu';
+    rootDocument.querySelector(`main`).append(beveragesMenu);
+
+    beveragesMenu.appendChild(beveragesFirstSectionElement);
+    beveragesMenu.appendChild(beveragesSecondSectionElement);
+  }
+
+  const foodFirstSectionSelector = '.section.sweets';
+  const foodFirstSectionElement = rootDocument.querySelector('.section.sweets');
+
+  const foodSecondSectionSelector = '.section.brioche-savory';
+  const foodSecondSectionElement = rootDocument.querySelector('.section.brioche-savory');
+
+  const foodThirdSectionSelector = '.section.sides';
+  const foodThirdSectionElement = rootDocument.querySelector('.section.sides');
+
+  if (foodFirstSectionElement && foodSecondSectionElement && foodThirdSectionElement) {
+    // create a new root div element for Beverages Menu
+    const foodMenu = document.createElement("div");
+    foodMenu.className = 'food-menu';
+    rootDocument.querySelector(`main`).append(foodMenu);
+
+    foodMenu.appendChild(foodFirstSectionElement);
+    foodMenu.appendChild(foodSecondSectionElement);
+    foodMenu.appendChild(foodThirdSectionElement);
+  }
+
+}
 
 /**
  * ToDo
