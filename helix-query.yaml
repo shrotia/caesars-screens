@@ -3,7 +3,7 @@ indices:
   channels:
     include:
       - '/screens/caesars/**'
-    target: '/screens/caesars/channels'
+    target: '/screens/channels'
     properties:
       title:
         select: head > meta[property="og:title"]
