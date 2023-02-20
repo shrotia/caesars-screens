@@ -17,6 +17,6 @@ indices:
         value: |
           parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
       manifestPath:
-        select: head > meta[property="manifestpath"]
+        select: head > meta[name="manifestpath"]
         value:  |
           attribute(el, 'content')
