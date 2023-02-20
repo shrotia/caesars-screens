@@ -20,11 +20,11 @@ indices:
         select: head > meta[name="manifestpath"]
         value:  |
           attribute(el, 'content')
-      liveURL:
+      liveUrl:
         select: head > link[rel="canonical"]
         value:  |
           attribute(el, 'href')
-      publishURL:
+      publishUrl:
         select: head > link[rel="canonical"]
         value: |
           attribute(el, 'href')
