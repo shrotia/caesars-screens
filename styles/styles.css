@@ -238,6 +238,7 @@ main .section.highlight {
 
 main {
   display: flex;
+  min-width: 1600px;
 }
 
 @media (orientation: portrait) {
@@ -272,10 +273,15 @@ header {
 .section.beverages-heading {
   writing-mode: vertical-rl;
   text-orientation: revert;
-  text-align: end;
   font-size: 70px;
   font-weight: lighter;
   padding: 0px;
+  margin-bottom: 16px;
+}
+
+.section.beverages-heading p {
+  margin: 0%;
+  transform: scale(-1, -1);
 }
 
 .section.beverages-content {
@@ -287,6 +293,14 @@ header {
 .section.beverages-content .coffee-table  > div > div:first-of-type {
   width: 60%;
   flex-grow: 2;
+}
+
+.section.beverages-content .coffee-table  > div > div:nth-of-type(2) {
+  width: 20%;
+}
+
+.section.beverages-content .coffee-table  > div > div:nth-of-type(3) {
+  width: 20%;
 }
 
 .section.beverages-content div {
@@ -316,7 +330,7 @@ header {
 
 .section.beverages-content > .alcohol-beverages-table {
   border: solid;
-  margin: 2%;
+  margin: 3%;
   padding: 2%;
   display: flex;
   flex-wrap: wrap;
@@ -407,14 +421,12 @@ header {
   border: solid;
   padding: 2%;
   margin: 2%;
-  width: 100%;
+  width: 95%;
 }
 
 .section.sides {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  padding-left: 10%;
 }
 
 .section.sides > div:first-of-type {
@@ -429,15 +441,11 @@ header {
 .section.sides p {
   writing-mode: vertical-rl;
   text-orientation: revert;
-  text-align: end;
+  transform: scale(-1, -1);
   font-size: 70px;
   font-weight: lighter;
   padding: 0%;
-  margin: 0%;
-}
-
-.section.beverages-heading p {
-  margin: 1%;
+  margin: 32px 0 0 0;
 }
 
 .section.sweets .sweets-table > div:nth-of-type(2)  {
