@@ -1,5 +1,5 @@
-//const posData = 'https://main--caesars-screens--shrotia.hlx.live/screens/caesars/restaurants/menus/pos-data.json';
-const posData = 'http://localhost:3000/screens/caesars/restaurants/menus/pos-data.json';
+const posData = 'https://main--caesars-screens--shrotia.hlx.live/screens/caesars/restaurants/menus/pos-data.json';
+//const posData = 'http://localhost:3000/screens/caesars/restaurants/menus/pos-data.json';
 
 export const startsWithTemplateLiteral = '{{';
 export const endsWithTemplateLiteral = '}}';
