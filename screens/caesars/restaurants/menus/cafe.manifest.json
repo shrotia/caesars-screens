@@ -16,6 +16,18 @@
       "timestamp": 1658844892337
     },
     {
+      "path": "/scripts/menu-builder.js",
+      "timestamp": 1593512456954
+    },
+    {
+      "path": "/scripts/menu-content-parser.js",
+      "timestamp": 1593512456954
+    },
+    {
+      "path": "/styles/styles.css",
+      "timestamp": 1593512456954
+    },
+    {
       "path": "/scripts/lib-franklin.js",
       "timestamp": 1593512456954
     },
@@ -28,12 +40,16 @@
       "timestamp": 1671099599105
     },
     {
-      "path": "/blocks/header/header.css",
+      "path": "/blocks/columns/columns.css",
       "timestamp": 1671099599112
     },
     {
-      "path": "/blocks/footer/footer.css",
+      "path": "/blocks/columns/columns.js",
       "timestamp": 1671099599112
+    },
+    {
+      "path": "/scripts/delayed.js",
+      "timestamp": 1671099599113
     },
     {
       "path": "/styles/lazy-styles.css",
