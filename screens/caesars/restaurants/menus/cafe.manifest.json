@@ -20,7 +20,15 @@
       "timestamp": 1593512456954
     },
     {
+      "path": "/scripts/jsonpath.min.js",
+      "timestamp": 1593512456954
+    },
+    {
       "path": "/scripts/menu-content-parser.js",
+      "timestamp": 1593512456954
+    },
+    {
+      "path": "/screens/caesars/restaurants/menus/pos-data.json",
       "timestamp": 1593512456954
     },
     {
@@ -34,10 +42,6 @@
     {
       "path": "/scripts/scripts.js",
       "timestamp": 1670317246247
-    },
-    {
-      "path": "/styles/styles.css",
-      "timestamp": 1671099599105
     },
     {
       "path": "/blocks/columns/columns.css",
