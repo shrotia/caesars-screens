@@ -2,6 +2,57 @@
 
 /* Beverages Menu */
 
+.beverages-table {
+    background-color: #601014;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 60% 40%;
+    gap: 0px 0px;
+}
+
+.section.beverages-heading {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    align-self: end;
+    writing-mode: vertical-rl;
+    text-orientation: revert;
+    font-size: 70px;
+    font-weight: lighter;
+    padding: 0%;
+    transform: scale(-1, -1);
+}
+
+.section.beverages-coffee {
+    padding: 0%;
+    display: grid;
+}
+
+.section.beverages-alcoholic {
+    padding: 0%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 40% 40%;
+}
+
+.section.beverages-alcoholic > div:first-of-type {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.section.beverages-alcoholic > div:nth-of-type(2) {
+    grid-row-start: 2;
+}
+
+.section.beverages-alcoholic > div:nth-of-type(3) {
+    grid-row-start: 3;
+}
+
+.section.beverages-alcoholic > div:nth-of-type(4) {
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+/*
 .beverages-menu {
     background-color: #601014;
     display: flex;
@@ -141,7 +192,7 @@
 
 /* Food Menu */
 
-.food-menu {
+/*.food-menu {
     display: flex;
     flex-direction: column;
     background-color: #000;
@@ -250,4 +301,4 @@
 
 .section.sides .sides-table > div:nth-of-type(4)  {
     margin-left: 1em;
-}
+}*/

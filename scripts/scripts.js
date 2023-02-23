@@ -13,7 +13,6 @@ import {
 
 import {
   layout,
-  nestedTable,
   hidePlaceholders,
 } from './menu-builder.js';
 
@@ -99,7 +98,6 @@ export function addFavIcon(href) {
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
-  await nestedTable(doc);
 
   const main = doc.querySelector('main');
   await loadBlocks(main);

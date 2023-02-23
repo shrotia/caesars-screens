@@ -4,42 +4,8 @@
  * @returns {Promise<void>}
  */
 export const layout = async function createMenusFlexLayout(rootDocument) {
-    const beveragesFirstSectionSelector = '.section.beverages-heading';
-    const beveragesFirstSectionElement = rootDocument.querySelector(beveragesFirstSectionSelector);
-
-    const beveragesSecondSectionSelector = '.section.beverages-content';
-    const beveragesSecondSectionElement = rootDocument.querySelector(beveragesSecondSectionSelector);
-
-    if (beveragesFirstSectionElement && beveragesSecondSectionElement) {
-        // create a new root div element for Beverages Menu
-        const beveragesMenu = document.createElement("div");
-        beveragesMenu.className = 'beverages-menu';
-        rootDocument.querySelector(`main`).append(beveragesMenu);
-
-        beveragesMenu.appendChild(beveragesFirstSectionElement);
-        beveragesMenu.appendChild(beveragesSecondSectionElement);
-    }
-
-    const foodFirstSectionSelector = '.section.sweets';
-    const foodFirstSectionElement = rootDocument.querySelector('.section.sweets');
-
-    const foodSecondSectionSelector = '.section.brioche-savory';
-    const foodSecondSectionElement = rootDocument.querySelector('.section.brioche-savory');
-
-    const foodThirdSectionSelector = '.section.sides';
-    const foodThirdSectionElement = rootDocument.querySelector('.section.sides');
-
-    if (foodFirstSectionElement && foodSecondSectionElement && foodThirdSectionElement) {
-        // create a new root div element for Beverages Menu
-        const foodMenu = document.createElement("div");
-        foodMenu.className = 'food-menu';
-        rootDocument.querySelector(`main`).append(foodMenu);
-
-        foodMenu.appendChild(foodFirstSectionElement);
-        foodMenu.appendChild(foodSecondSectionElement);
-        foodMenu.appendChild(foodThirdSectionElement);
-    }
-
+    await nestedBeveragesTable(rootDocument);
+    await nestedFoodTable(rootDocument);
 }
 
 /**
@@ -47,33 +13,56 @@ export const layout = async function createMenusFlexLayout(rootDocument) {
  * @param rootDocument
  * @returns {Promise<void>}
  */
-export const nestedTable = async function createAlcoholBevarageNestedTable(rootDocument) {
-    const rootSelector = '.section.beverages-content';
-    const beverageContentDocumentRoot = rootDocument.querySelector(rootSelector);
+const nestedBeveragesTable = async function createAlcoholBevarageNestedTable(rootDocument) {
+    const beveragesHeadingSection = '.section.beverages-heading';
+    const beveragesCoffeeSection = '.section.beverages-coffee';
+    const beveragesAlcoholicSection = '.section.beverages-alcoholic';
 
-    if (!beverageContentDocumentRoot) {
-        return;
+    const beveragesHeadingDocumentRoot = rootDocument.querySelector(beveragesHeadingSection);
+    const beveragesCoffeeDocumentRoot = rootDocument.querySelector(beveragesCoffeeSection);
+    const beveragesAlcoholicDocumentRoot = rootDocument.querySelector(beveragesAlcoholicSection);
+
+    if (beveragesHeadingDocumentRoot && beveragesCoffeeDocumentRoot && beveragesAlcoholicDocumentRoot) {
+        const parentElement = beveragesHeadingDocumentRoot.parentElement;
+        // create a new nested table div element for Beverages Table
+        const alcoholBeverageNestedTableDiv = document.createElement("div");
+        alcoholBeverageNestedTableDiv.className = 'beverages-table';
+        parentElement.append(alcoholBeverageNestedTableDiv);
+
+        alcoholBeverageNestedTableDiv.append(beveragesHeadingDocumentRoot);
+        alcoholBeverageNestedTableDiv.append(beveragesCoffeeDocumentRoot);
+        alcoholBeverageNestedTableDiv.append(beveragesAlcoholicDocumentRoot);
     }
+}
 
-    const tableHeading = beverageContentDocumentRoot.querySelector(`${rootSelector} > div:nth-last-child(-n + 4)`);
-    const wineTable = beverageContentDocumentRoot.querySelector(`${rootSelector} > div:nth-last-child(-n + 3)`);
-    const champagneTable = beverageContentDocumentRoot.querySelector(`${rootSelector} > div:nth-last-child(-n + 2)`);
-    const beerTable = beverageContentDocumentRoot.querySelector(`${rootSelector} > div:nth-last-child(-n + 1)`);
+/**
+ *
+ * @param rootDocument
+ * @returns {Promise<void>}
+ */
+const nestedFoodTable = async function createFoodNestedTable(rootDocument) {
+    const foodHeadingSection = '.section.food-heading';
+    const foodSweetsSection = '.section.sweets';
+    const foodBriocheSavorySection = '.section.brioche-savory';
+    const foodSidesSection = '.section.sides';
 
-    // create a new nested table div element
-    const alcoholBeverageNestedTableDiv = document.createElement("div");
-    alcoholBeverageNestedTableDiv.className = 'alcohol-beverages-table';
-    rootDocument.querySelector(`${rootSelector}`).append(alcoholBeverageNestedTableDiv);
+    const foodHeadingDocumentRoot = rootDocument.querySelector(foodHeadingSection);
+    const foodSweetsDocumentRoot = rootDocument.querySelector(foodSweetsSection);
+    const foodBriocheSavoryDocumentRoot = rootDocument.querySelector(foodBriocheSavorySection);
+    const foodSidesDocumentRoot = rootDocument.querySelector(foodSidesSection);
 
-    // create a new nested table div element
-    const wineChampagneNestedTableDiv = document.createElement("div");
-    wineChampagneNestedTableDiv.className = 'wine-champagne-left-table';
-    wineChampagneNestedTableDiv.appendChild(wineTable);
-    wineChampagneNestedTableDiv.appendChild(champagneTable);
+    if (foodHeadingDocumentRoot && foodSweetsDocumentRoot && foodBriocheSavoryDocumentRoot && foodSidesDocumentRoot) {
+        const parentElement = foodHeadingDocumentRoot.parentElement;
+        // create a new nested table div element for Food Table
+        const foodNestedTableDiv = document.createElement("div");
+        foodNestedTableDiv.className = 'food-table';
+        parentElement.append(foodNestedTableDiv);
 
-    alcoholBeverageNestedTableDiv.appendChild(tableHeading);
-    alcoholBeverageNestedTableDiv.appendChild(wineChampagneNestedTableDiv);
-    alcoholBeverageNestedTableDiv.appendChild(beerTable);
+        foodNestedTableDiv.append(foodHeadingDocumentRoot);
+        foodNestedTableDiv.append(foodSweetsDocumentRoot);
+        foodNestedTableDiv.append(foodBriocheSavoryDocumentRoot);
+        foodNestedTableDiv.append(foodSidesDocumentRoot);
+    }
 
 }
 
