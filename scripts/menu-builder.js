@@ -93,7 +93,7 @@ export const hidePlaceholders = async function findAndHideTemplatePlaceholders(r
     for (let i = 0; i < elements.length; i++) {
         const element = elements[i];
         if (!element.querySelector('div') && element.textContent.includes(startsWithTemplateLiteral) && element.textContent.includes(endsWithTemplateLiteral)) {
-            elementsMap.set(element.textContent.substring(element.textContent.indexOf(startsWithTemplateLiteral), element.textContent.indexOf(endsWithTemplateLiteral) + 2), element);
+            elementsMap.set(`${element.textContent.substring(element.textContent.indexOf(startsWithTemplateLiteral), element.textContent.indexOf(endsWithTemplateLiteral) + 2)}${element.classList}`, element);
             element.style.display = 'none';
         }
     }
