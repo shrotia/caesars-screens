@@ -3,8 +3,10 @@ import {
     endsWithTemplateLiteral
 } from './../blocks/table/table.js';
 
-//const posData = 'https://main--caesars-screens--shrotia.hlx.live/screens/caesars/restaurants/menus/pos-data.json';
-const posData = 'http://localhost:3000/screens/caesars/restaurants/menus/pos-data.json';
+const posData = 'https://screens--caesars-screens--shrotia.hlx.live/screens/caesars/restaurants/menus/pos-data.json';
+//const posData = 'http://localhost:3000/screens/caesars/restaurants/menus/pos-data.json';
+
+const OUT_OF_STOCK = '%%not_available%%';
 
 // parse value JSON and mutate Menu HTML content
 /**
@@ -17,7 +19,7 @@ export async function populateValuesContent(elementsMap) {
     fetch(posData)
         .then(response => response.json())
         .then(menu => {
-            processMenuSection (elementsMap, menu);
+            processMenuSection(elementsMap, menu);
         })
         .catch(error => {
             // Handle any errors that occurred during the HTTP request
@@ -28,14 +30,19 @@ export async function populateValuesContent(elementsMap) {
 }
 
 /**
- * todo: this needs to be revisited - current implementation is not performant
+ * todo: this needs to be revisited - current iteration based implementation is not performant
  * @param classList
  * @param menuJsonPayload
  * @param key
  * @returns {*|string}
  */
 function computeContentValue(classList, menuJsonPayload, key) {
-    for (let {SKU, Variant1_price, Variant2_price} of menuJsonPayload.Beverages.data) {
+    for (let {SKU, Variant1_price, Variant2_price, isOutOfStock} of menuJsonPayload.Beverages.data) {
+
+        if (isOutOfStock === 'true') {
+            return OUT_OF_STOCK;
+        }
+
         if (SKU === key) {
             if (classList.contains('variant1-price')) {
                 return Variant1_price;
@@ -45,7 +52,7 @@ function computeContentValue(classList, menuJsonPayload, key) {
                 return Variant2_price;
             }
 
-            return '';
+            return ' ';
         }
     }
 }
@@ -61,9 +68,13 @@ function processMenuSection(elementsMap, menuJsonPayload) {
         const key = placeholderTemplate.substring(placeholderTemplate.indexOf(startsWithTemplateLiteral) + 2, placeholderTemplate.indexOf(endsWithTemplateLiteral));
         const targetValue = computeContentValue(targetElement.classList, menuJsonPayload, key);
 
-       if (targetValue) {
-           targetElement.textContent = targetElement.textContent.replace(`{{${key}}}`, targetValue);
-           targetElement.style.display = ''; // un hide after setting the value
-       }
+        if (targetValue === OUT_OF_STOCK) {
+            targetElement.parentElement.style.display = 'none';
+        }
+
+        if (targetValue) {
+            targetElement.textContent = targetElement.textContent.replace(`{{${key}}}`, targetValue);
+            targetElement.style.display = ''; // un hide after setting the value
+        }
     });
 }

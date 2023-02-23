@@ -21,13 +21,13 @@ export const layout = async function createMenusFlexLayout(rootDocument) {
     }
 
     const foodFirstSectionSelector = '.section.sweets';
-    const foodFirstSectionElement = rootDocument.querySelector('.section.sweets');
+    const foodFirstSectionElement = rootDocument.querySelector(foodFirstSectionSelector);
 
     const foodSecondSectionSelector = '.section.brioche-savory';
-    const foodSecondSectionElement = rootDocument.querySelector('.section.brioche-savory');
+    const foodSecondSectionElement = rootDocument.querySelector(foodSecondSectionSelector);
 
     const foodThirdSectionSelector = '.section.sides';
-    const foodThirdSectionElement = rootDocument.querySelector('.section.sides');
+    const foodThirdSectionElement = rootDocument.querySelector(foodThirdSectionSelector);
 
     if (foodFirstSectionElement && foodSecondSectionElement && foodThirdSectionElement) {
         // create a new root div element for Beverages Menu
