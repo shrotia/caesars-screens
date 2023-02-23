@@ -3,8 +3,7 @@ import {
     endsWithTemplateLiteral
 } from './../blocks/table/table.js';
 
-const posData = 'https://screens--caesars-screens--shrotia.hlx.live/screens/caesars/restaurants/menus/pos-data.json';
-//const posData = 'http://localhost:3000/screens/caesars/restaurants/menus/pos-data.json';
+const posData = '/screens/caesars/restaurants/menus/pos-data.json';
 
 const OUT_OF_STOCK = '%%not_available%%';
 
