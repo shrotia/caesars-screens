@@ -112,7 +112,7 @@ async function loadLazy(doc) {
   await hidePlaceholders(doc, placeholders);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
-  addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
+  addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.ico`);
 
   await populateValuesContent(placeholders);
 
