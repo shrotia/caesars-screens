@@ -1,8 +1,3 @@
-/*import {
-    startsWithTemplateLiteral,
-    endsWithTemplateLiteral
-} from './../blocks/table/table.js';*/
-
 const posData = '/screens/caesars/restaurants/menus/pos-data.json';
 
 const OUT_OF_STOCK = '%%not_available%%';
