@@ -24,7 +24,3 @@ indices:
         select: head > link[rel="canonical"]
         value:  |
           attribute(el, 'href')
-      publishUrl:
-        select: head > link[rel="canonical"]
-        value: |
-          attribute(el, 'href')
