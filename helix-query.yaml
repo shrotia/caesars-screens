@@ -19,7 +19,7 @@ indices:
       lastPublished:
         select: none
         value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+          headers['last-modified']
       manifestPath:
         select: head > meta[name="manifestpath"]
         value:  |
