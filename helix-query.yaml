@@ -28,3 +28,7 @@ indices:
         select: head > link[rel="canonical"]
         value:  |
           attribute(el, 'href')
+      editUrl:
+        select: head > link[rel="editurl"]
+        value: |
+          attribute(el, 'content')
