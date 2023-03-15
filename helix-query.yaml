@@ -29,6 +29,6 @@ indices:
         value:  |
           attribute(el, 'href')
       editUrl:
-        select: head > link[rel="editurl"]
+        select: head > meta[name="editurl"]
         value: |
           attribute(el, 'content')
