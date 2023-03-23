@@ -11,48 +11,55 @@
     font-display: swap;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 /* Beverages Menu */
 
 .beverages-menu {
     background-color: #601014;
-    display: flex;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 7rem 1fr;
 }
 
 @media (orientation: landscape) {
     .beverages-menu {
-        width: 50%;
+        width: 50vw;
+        height: 100vh;
     }
 }
 
 @media (orientation: portrait) {
     .beverages-menu {
-        width: 100%;
+        width: 100vw;
     }
 }
 
 .section.beverages-heading {
     writing-mode: vertical-rl;
     text-orientation: revert;
-    font-size: 70px;
+    font-size: 5rem;
     font-weight: lighter;
-    padding: 0px;
-    margin-bottom: 16px;
+    padding: 0;
 }
 
 .section.beverages-heading p {
-    margin: 0%;
+    margin: 0;
     transform: scale(-1, -1);
 }
 
 .section.beverages-content {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+    padding: 0;
 }
 
 .section.beverages-content .coffee-table  > div > div:first-of-type {
     width: 60%;
-    flex-grow: 2;
 }
 
 .section.beverages-content .coffee-table  > div > div:nth-of-type(2) {
@@ -64,37 +71,39 @@
 }
 
 .section.beverages-content div {
-    margin: 0px;
+    margin: 0;
+    align-self: center;
 }
 
 .section.beverages-content .coffee-table {
-    margin: 2%;
-    padding: 2%;
+    font-size: 110%;
+    margin-top: 2%;
 }
 
 .section.beverages-content .coffee-table > div h3 {
-    margin: 0px;
+    margin: 0;
 }
 
 .section.beverages-content .alcoholic-table {
     border: solid;
-    margin-top: 20px;
+    margin-top: 2rem;
     display: -webkit-flex;
     -webkit-flex-flow: row wrap;
     justify-content: flex-start;
 }
 
 .section.beverages-content h3 {
-    margin: 0px;
+    margin: 0;
 }
 
 .section.beverages-content > .alcohol-beverages-table {
     border: solid;
-    margin: 3%;
+    margin: 1%;
     padding: 2%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: unset;
+    align-self: end;
 }
 
 .section.beverages-content > .alcohol-beverages-table > div:first-of-type {
@@ -153,15 +162,16 @@
 /* Food Menu */
 
 .food-menu {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
     background-color: #000;
-    width: 50%
+    width: 50vw;
 }
 
 @media (orientation: landscape) {
     .food-menu {
         width: 50%;
+        height: 100vh;
     }
 }
 
@@ -171,10 +181,22 @@
     }
 }
 
+
 .section.sweets, .section.brioche-savory, .section.sides  {
-    padding: 0%;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+}
+
+.section.sweets  {
+    align-self: start;
+}
+
+.section.brioche-savory  {
+    align-self: center;
+}
+
+.section.sides  {
+    padding: 0;
+    align-self: end;
 }
 
 .section.sweets .sweets-table {
@@ -206,7 +228,7 @@
 }
 
 .section.sides > div:nth-of-type(2)  {
-    margin: 0%;
+    margin: 0;
     width: 80%;
 }
 
@@ -214,10 +236,10 @@
     writing-mode: vertical-rl;
     text-orientation: revert;
     transform: scale(-1, -1);
-    font-size: 70px;
+    font-size: 5rem;
     font-weight: lighter;
-    padding: 0%;
-    margin: 32px 0 0 0;
+    padding: 0;
+    margin: 2rem 0 0 0;
 }
 
 .section.sweets .sweets-table > div:nth-of-type(2)  {
