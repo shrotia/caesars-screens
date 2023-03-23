@@ -29,7 +29,6 @@
 @media (orientation: landscape) {
     .beverages-menu {
         width: 50vw;
-        height: 100vh;
     }
 }
 
@@ -171,7 +170,6 @@
 @media (orientation: landscape) {
     .food-menu {
         width: 50%;
-        height: 100vh;
     }
 }
 
