@@ -255,11 +255,14 @@ main .section.highlight {
 
 main {
   display: flex;
+}
+
+html {
   min-width: 100vw;
   min-height: 100vh;
 }
 
-@media (orientation: portrait) {
+@media (orientation: portrait) or (max-width: 1200px) {
   main {
     flex-direction: column;
   }
