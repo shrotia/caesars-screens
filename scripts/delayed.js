@@ -6,7 +6,7 @@ sampleRUM('cwv');
 
 // FixMe: workaround to set the fluid/responsiveness typography
 setTimeout(() => {
-    console.log("setting heihght");
+    console.log("computing & setting the resolution automatically");
     checkAndSetTypography();
     //document.querySelector('main').style.height = '100%';
 }, 2000);
