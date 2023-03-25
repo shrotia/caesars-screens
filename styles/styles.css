@@ -257,12 +257,21 @@ main {
   display: flex;
 }
 
-html {
-  min-width: 100vw;
-  min-height: 100vh;
+
+@media (min-width: 1200px) and (min-height: 800px) {
+  html {
+    min-width: 100vw;
+    min-height: 100vh;
+  }
 }
 
-@media (orientation: portrait) or (max-width: 1200px) {
+@media (max-width: 1200px) {
+  html {
+    width: 1200px;
+  }
+}
+
+@media (orientation: portrait) or (max-width: 900px) {
   main {
     flex-direction: column;
   }
