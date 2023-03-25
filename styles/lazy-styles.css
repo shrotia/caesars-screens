@@ -11,6 +11,11 @@
     font-display: swap;
 }
 
+html {
+   /* font-size: calc(1vh * 1.5);*/
+   /* font-size: calc(10px + 16 * ((100vh - 600px) / (3000 - 600)));*/
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -53,7 +58,8 @@
 
 .section.beverages-content {
     display: grid;
-    grid-template-rows: 3fr 2fr;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr auto;
     padding: 0;
 }
 
@@ -69,13 +75,19 @@
     width: 20%;
 }
 
-.section.beverages-content div {
+.section.beverages-content > .beverages-content-coffee {
+    font-size: larger;
     margin: 0;
-    align-self: center;
+    align-self: start;
+}
+
+.section.beverages-content > .beverages-content-alcohol {
+    margin: 0;
+    align-self: start;
 }
 
 .section.beverages-content .coffee-table {
-    font-size: 110%;
+   /* font-size: 110%;*/
     margin-top: 2%;
 }
 
@@ -95,7 +107,7 @@
     margin: 0;
 }
 
-.section.beverages-content > .alcohol-beverages-table {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table {
     border: solid;
     margin: 1%;
     padding: 2%;
@@ -105,55 +117,55 @@
     align-self: end;
 }
 
-.section.beverages-content > .alcohol-beverages-table > div:first-of-type {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > div:first-of-type {
     width: 100%;
 }
 
-.section.beverages-content > .alcohol-beverages-table > div:nth-of-type(2) {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > div:nth-of-type(2) {
     width: 50%;
 }
 
-.section.beverages-content > .alcohol-beverages-table > div:nth-of-type(3) {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > div:nth-of-type(3) {
     width: 50%;
 }
 
-.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(2) {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(2) {
     margin-left: 1em;
 }
 
-.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(2)  > div:nth-of-type(2) {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(2)  > div:nth-of-type(2) {
     text-align: center;
 }
 
-.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(3)  {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(3)  {
     margin-left: 1em;
 }
 
-.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(3) > div:nth-of-type(2) {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > .wine-champagne-left-table .wine-table > div:nth-of-type(3) > div:nth-of-type(2) {
     text-align: center;
 }
 
-.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .champagne-table > div:nth-of-type(2)  {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > .wine-champagne-left-table .champagne-table > div:nth-of-type(2)  {
     margin-left: 1em;
 }
 
-.section.beverages-content > .alcohol-beverages-table > .wine-champagne-left-table .champagne-table > div:nth-of-type(2)  > div:nth-of-type(2) {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table > .wine-champagne-left-table .champagne-table > div:nth-of-type(2)  > div:nth-of-type(2) {
     text-align: center;
 }
 
-.section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(2)  {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table .beer-table > div:nth-of-type(2)  {
     margin-left: 1em;
 }
 
-.section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(3)  {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table .beer-table > div:nth-of-type(3)  {
     margin-left: 1em;
 }
 
-.section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(4)  {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table .beer-table > div:nth-of-type(4)  {
     margin-left: 1em;
 }
 
-.section.beverages-content > .alcohol-beverages-table .beer-table > div:nth-of-type(5)  {
+.section.beverages-content .beverages-content-alcohol > .alcohol-beverages-table .beer-table > div:nth-of-type(5)  {
     margin-left: 1em;
 }
 
@@ -162,9 +174,9 @@
 
 .food-menu {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
     background-color: #000;
-    width: 50vw;
+    grid-template-columns: 100%;
 }
 
 @media (orientation: landscape) {
@@ -195,6 +207,7 @@
 .section.sides  {
     padding: 0;
     align-self: end;
+    justify-content: center;
 }
 
 .section.sweets .sweets-table {
@@ -223,6 +236,7 @@
 
 .section.sides > div:first-of-type {
     order: 1;
+    margin: 0;
 }
 
 .section.sides > div:nth-of-type(2)  {
