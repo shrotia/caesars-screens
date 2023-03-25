@@ -259,14 +259,17 @@ main {
 
 
 @media (min-width: 1200px) and (min-height: 800px) {
-  html {
+  main {
     min-width: 100vw;
     min-height: 100vh;
+  }
+  html {
+    overflow: hidden;
   }
 }
 
 @media (max-width: 1200px) {
-  html {
+  main {
     width: 1200px;
   }
 }
