@@ -9,7 +9,7 @@ setTimeout(() => {
     console.log("computing & setting the resolution automatically");
     checkAndSetTypography();
     //document.querySelector('main').style.height = '100%';
-}, 2000);
+}, 500);
 
 async function checkAndSetTypography() {
     const htmlElement = document.querySelector('html');
@@ -21,8 +21,11 @@ async function checkAndSetTypography() {
         fontSize = fontSize + 1;
         htmlElement.style.fontSize = fontSize + '%';
         window.dispatchEvent(new Event('resize'));
-        await delayTimer(500);
+       //await delayTimer(100); 
     }
+    htmlElement.style.opacity = '1';
+    htmlElement.querySelector('.beverages-menu').style.backgroundColor = '#601014';//background-color: #601014;
+    htmlElement.querySelector('.food-menu').style.backgroundColor = '#000'; // background-color: #000;
 }
 
 async function isScrollbarHidden(element) {

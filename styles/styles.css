@@ -259,6 +259,8 @@ main {
 
 html {
   font-size: 73%;
+  opacity: 0.1;
+  transition: opacity 5s;
 }
 
 @media (min-width: 1200px) and (min-height: 800px) {
